@@ -1,0 +1,51 @@
+/* 
+
+used in grids,cards ,heading etc anything that is in box style
+*/
+
+:root{
+    --s1: 2rem;
+  }
+  
+  
+  *{
+    /* remove sizing issues using  border-box
+    * will be applied to all the box using asterisk
+    */
+    box-sizing: border-box;
+    
+  }
+  
+
+
+
+.box {
+    --color-light: #eee;
+    --color-dark: #222;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    padding: var(--s1);
+
+    /*outline property also has no impact on
+    layout (it grows out from the element to cover other elements if
+    present). When , it
+    gives the outline a color and the box is drawn.*/
+    outline: 0.125rem solid transparent;
+    outline-offset: -0.125rem;
+
+    }
+
+    .box * {
+    color: inherit;
+    }
+    
+    .box.invert {
+    /* ↓ Dark becomes light, and light becomes dark */
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    /* can also use filter:invert(100%);
+    
+    */
+    }
+    
+

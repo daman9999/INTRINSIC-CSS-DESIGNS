@@ -1,0 +1,25 @@
+/* threshold
+
+Certain inevitably accept measure-related props,
+and some set default values for those props using .
+The has a prop that defines the container width
+at which the layout switches between a horizontal a
+nd vertical
+configuration:
+
+
+*/
+
+
+
+.switcher-l {
+    --measure:2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.switcher-l > * {
+    /* measure is threshold informs the element to not grow above this size 👇*/
+    flex-basis: calc((var(--measure) - 100%) * 999);
+    flex-grow: 1;
+    }

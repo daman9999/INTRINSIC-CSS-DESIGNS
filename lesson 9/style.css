@@ -1,0 +1,119 @@
+
+
+
+/* 
+cluster is used to style intrinsicly the 
+content in <nav>
+
+
+CLUSTER components suit any groups of elements that differ in
+length and are liable to wrap. 
+* Buttons that appear together at the end of forms are ideal candidates,
+* as well as lists of tags, keywords,or other meta information. 
+* Use the to align any groups of horizontally laid out elements 
+  to the left or right, or in the center.Cluster
+
+  ++++++++++++++++++++++++++++++++++++++++++++++
+
+  |---------|      |---------|
+  | btn 1   |      | btn 2   |
+  |---------|      |---------|
+
+  +++++++++++++++++++++++++++++++++++++++++++++
+
+*/
+
+.cluster {
+  --space: 1rem;
+}
+
+.cluster>* {
+  display: flex;
+  flex-wrap: wrap;
+  /* ↓ multiply by -1 to negate the halved value */
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.cluster>*>* {
+  /* ↓ half the value, because of the 'doubling up' */
+  margin: calc(var(--space) / 2);
+}
+
+/*
+I think you’ll agree the above technique
+ is a bit unwieldy. It can also
+cause the horizontal scrollbar to appear, 
+under some circumstances.
+Fortunately, as of mid-2021, all browser supports gap property
+.The gap property injects spacing
+the child elements, doing away with 
+the need for both negative
+margins and the additional wrapper element. 
+Even the calc() can be
+retired, since the value is just that!
+*/
+
+/* above code progressed to this 👇  */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space, 1rem);
+}
+
+
+.cluster>* {
+  display: flex;
+  flex-wrap: wrap;
+  /* ↓ multiply by -1 to negate the halved value */
+  margin: calc(var(--space) / 2 * -1);
+}
+
+.cluster>*>* {
+  /* ↓ half the value, because of the 'doubling up' */
+  margin: calc(var(--space) / 2);
+}
+
+
+/*  Graceful degradation 
+* Despite the reassuring support picture for , 
+we should be mindful
+of the layout in browsers where 
+it isn’t supported. Problematically,
+may be supported for the Grid layout module (see GRID) but not
+for Flexbox, so using in a @supports block can give a false
+positive.
+
+
+*/
+
+
+/* This won’t work */
+.cluster>* {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+@supports (gap: 1rem) {
+  .cluster>* {
+    margin: 0;
+  }
+
+  .cluster {
+    gap: var(--space, 1rem);
+  }
+}
+
+/* As of today, we recommend using 
+without feature detection,
+accepting that layouts will 
+become in older browsers. We
+gap
+flush
+include the negative margin 
+technique above if that’s your
+preference instead.
+ */
+
+
+

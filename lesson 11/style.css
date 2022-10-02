@@ -1,0 +1,57 @@
+/* 
+
+problem last wala full strech ho janda
+
+also called The Flexbox Holy Albatross
+*/
+
+/* .grid{
+  --s1:1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap:var(--s1,2rem);
+ 
+}
+
+
+.grid > *{
+  flex: 1 1 20rem;
+
+} */
+
+
+/* solution is Switcher
+ */
+ 
+ 
+ .switcher > * {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  .switcher > * > * {
+  flex-grow: 1;
+  /*Depending on the parsed value of 100%, 
+  this will return either a
+  or value: positive if the container 
+  is narrower than 30 rem  , or negative 
+  if it is wider. This number is then multiplied 
+  by 999 to produce either a positive number or a
+  negative number:
+  
+  hence A negative value of flex-basis is invalid,  and dropped.
+  The erroneous negative value is corrected to 0 
+  and—because flex-grow is present—each element 
+  grows to take up an equal proportion of
+  horizontal space
+
+  large negative number help in producing inline 
+  large +ve number will do the stack style.
+
+
+To keep things
+in order, nested elements can be given a max-inline-size of 100%
+  ;
+  */
+  flex-basis: calc((30rem - 100%) * 999);
+  }
+ 

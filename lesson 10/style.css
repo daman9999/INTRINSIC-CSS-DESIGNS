@@ -1,0 +1,59 @@
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.blue{
+  background-color: blue;
+}
+
+
+.with-sidebar  {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  }
+  .sidebar {
+  /* ↓ The width when the sidebar _is_ a sidebar */
+  /* for instrinsic layout  we might want to let the sidebar’s content 
+  determine its width. Where we do not provide a 
+  flex-basis value at all, 
+  the sidebar’s width is equal to the width 
+  of its contents.  The wrapping behavior 
+  remains the same. */
+  flex-basis: 20rem;
+  flex-grow: 1;
+  }
+  .not-sidebar {
+  /* ↓ Grow from nothing */
+  flex-basis: 0;
+  flex-grow: 999;
+  /* ↓ Wrap when the elements are of equal width */
+  min-inline-size: 50%;
+  }
+  
+
+  /* 
+==================***designing a search bar in sidebar*** ==================  
+  <form>
+<sidebar-l side="right" space="0" contentMin="66.666%">
+<input type="text">
+<button>Search</button>
+</sidebar-l>
+</form>
+
+
+designing search bar
+  demo: =
+  https://every-layout.dev/demos/sidebar-input-with-button/
+
+  */
+
+
+
+
+  👇
+  the easy way without classes sidebar is given in style1.css

@@ -1,0 +1,69 @@
+/* 
+    used for making cards
+
+*/
+
+
+
+.box{
+    max-inline-size: 45ch;;
+}
+
+
+.switcher {
+    --gutter: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* ↓ The default value is the first point on the modular scale */
+    gap: var(--gutter, var(--s1));
+    /* ↓ The width at which the layout “breaks” */
+    --threshold: 30rem;
+}
+
+.switcher>* {
+    /* ↓ Allow children to grow */
+    flex-grow: 1;
+    /* ↓ Switch the layout at the --threshold */
+    flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+
+
+
+    /*
+
+*   Here, we are applying a flex-basis 
+    of to each element, only
+    where there are five or more elements in total. 
+    The 
+    :nth-last-child(n+5),selector targets any 
+    elements that are more than 4 from
+    the of the set. Then, the general 
+    sibling combinator (~ ) applies
+    the same rule to the rest of the elements 
+    (it matches anything after). If there are 
+    fewer that 5 items, no
+    elements and the style is not applied.
+
+*/
+
+
+.switcher> :nth-last-child(n+5),
+.switcher> :nth-last-child(n+5) ~ *
+
+{
+    /* ↓ Switch to a vertical configuration if
+    there are more than 4 child elements */
+    background-color: salmon;
+    flex-basis: 100%;
+}
+
+
+
+/* 
+
+https://codepen.io/heydon/pen/QwjGZp
+
+
+for navbar design
+*/

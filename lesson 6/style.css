@@ -1,0 +1,79 @@
+/**
+BOX
+Like , padding ,border
+should be applied on all sides or 
+none at all. In
+cases where
+borders are used to elements, they should be
+applied contextually, via a parent, like margin 
+is in the .
+Otherwise, borders will come into contact and 'double up'
+
+*/
+
+
+:root{
+  --s1: 2rem;
+}
+
+
+*{
+  /* remove sizing issues using  border-box
+  * will be applied to all the box using asterisk
+  */
+  box-sizing: border-box;
+  
+}
+
+
+/*  is only really a if it has a box-like shape. 
+Yes,all elements are 
+box shaped, but a should 
+typically you this.
+The most common methods 
+use either border
+ or a background color
+
+changing the background color
+ the often
+requires you to change the color 
+to ensure the content is still legible.
+This can be made easier by applying 
+color:inherit
+to any elements
+inside that BOX.
+. */
+
+  .box {
+    --color-light: #eee;
+    --color-dark: #222;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    padding: var(--s1);
+    }
+    
+
+  .box * + * {
+    /* all the child element is visible */
+    outline: 1px solid black;
+    }
+
+    .box *{
+      /* 
+      By forcing inheritance, you can change 
+      the color —along with the background-color
+      —in one place: on the box itself.
+      In the following
+      example, I am using an .invert class to swap color 
+      and background-color properties. 
+      Custom properties make it possible to
+      adjust the specific light and dark values in one place.
+      */
+      color: inherit;
+    }
+
+  
+
+
+    /* imporved version with invert class  in style1.css*/
+    

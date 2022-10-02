@@ -1,0 +1,42 @@
+.imposter {
+    /* ↓ Choose the positioning element */
+    
+    --positioning:fixed;
+    /* 
+    you should replace with position:absolute;.
+     This is often desirable for dialogs, which should
+     follow  the user as they scroll the document, and
+      remain in view until tended to.
+    */
+
+    position: var(--positioning, absolute);
+    /* ↓ Position the top left corner in the center */
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    /* ↓ Reposition so the center of the element
+    is the center of the container */
+    transform: translate(-50%, -50%);
+    background-color: blueviolet;
+}
+
+
+
+.imposter.contain {
+    /* ↓ Include a unit, or the calc function will be invalid */
+    --margin: 0px;
+    padding:40px;
+    outline: 1px solid red;
+    
+    
+    /* ↓ Provide scrollbars so content is not obscured */
+    overflow: auto;
+
+
+    /* ↓ Restrict the height and width, including optional
+    spacing/margin between the element and positioning container */
+    /* max left and right spacing👇 */
+    max-inline-size: calc(100% - (var(--margin) * 2));
+    /* max left and right spacing👇 */
+    max-block-size: calc(100% - (var(--margin) * 2));
+    
+}

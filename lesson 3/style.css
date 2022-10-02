@@ -1,0 +1,36 @@
+/* Each utility class has !important to maxout 
+specificity/weight
+
+One thing we highly recommend is including utility classes until
+you need them. You don’t want to send users any unused or
+redundant data.
+
+
+*/
+:root {
+    --font-size-base: 1rem;
+    --font-size-biggish: 1.75rem;
+    --font-size-big: 2.25rem;
+}
+
+/* elements */
+h3 {
+    font-size: var(--font-size-biggish);
+}
+
+h2 {
+    font-size: var(--font-size-big);
+}
+
+/* utilities */
+.font-size\:base {
+    font-size: var(--font-size-base) !important;
+}
+
+.font-size\:biggish {
+    font-size: var(--font-size-biggish) !important;
+}
+
+.font-size\:big {
+    font-size: var(--font-size-big) !important;
+}

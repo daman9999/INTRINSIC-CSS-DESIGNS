@@ -1,0 +1,70 @@
+
+
+
+
+/* stack code from previous lesson */
+* {
+  max-inline-size: 40ch;
+}
+
+.stack {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack>* {
+  margin-block: 0;
+}
+
+.stack>*+* {
+  margin-block-start: var(--space, 1.5rem);
+}
+
+.stack:only-child {
+  block-size: 100%;
+}
+
+.stack> :nth-child(2) {
+  margin-block-end: auto;
+}
+
+/* stack code end */
+
+
+
+/* intrinsic centering given below 👇
+*/
+
+
+/* center content in stack  */
+
+.center {
+  box-sizing: content-box;
+  max-inline-size: 20ch;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/*====================================== 
+          📔   NOTE    📔
+
+Be aware that, whenever you move content 
+away from the left-hand
+edge (in a left-to-right writing direction), 
+there's a potential accessibility issue. 
+Where a user has zoomed the interface, it's
+possible the centered content will have moved 
+out of the viewport.They may never realise it's
+there.So long as your interface is flexible 
+and responsive, and no fixed width is set on 
+the container, the centered content should
+ be visible in most circumstances.   
+
+
+===========================================*/

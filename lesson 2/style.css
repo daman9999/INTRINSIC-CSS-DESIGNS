@@ -1,0 +1,28 @@
+/* font size never drops below default value */
+/* :root{
+    font-size: calc(1rem + 0.5vw);
+} */
+
+
+
+/* The width of the max-width box will rotate
+     with the content. But max-inline-size
+     is smart! It leaves its width in tact, 
+    regardless of the writing-mode value.  
+
+    that is why =>   max-inline-size: 60ch;
+*/
+
+h2,
+h3 {
+    /* content will not exceed size of 60ch  inspite of orientation */
+    max-inline-size: 60ch;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}

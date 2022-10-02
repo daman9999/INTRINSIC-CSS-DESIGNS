@@ -1,0 +1,150 @@
+/* 
+never text-align:center on 🛑 paragraphs🛑 text because
+
+
+* Left aligned text is easier to 
+  read than centered text for paragraphs .
+  This is because when you center your text, 
+  the starting place of each line changes. 
+  This forces your users to work harder 
+  to find where each line begins to continue 
+  reading. Without a straight left edge, 
+  there is no consistent place where
+  users can move their eyes to 
+  when they complete each line.
+  owever, when your paragraph text is left aligned, 
+  a straight left edge appears. Users can read each 
+  line by simply moving their eyes to the left 
+  edge each time. This makes your paragraphs 
+  faster and easier to read because the user’s eyes don’t 
+  have to work as hard to find where the line starts each time.
+
+* Centered text is "best used" for ✅"headlines 
+  and short lines of text".sers can read them with 
+  ease because the lines are short, scannable and 
+  don’t need repeated eye movements. They can also 
+  give your layout a balanced look with its 
+  symmetrical format.
+
+
+* Following these guidelines will help make your
+  text look appealing and easy to read. What 
+  your text says to users is important. But how 
+  your text looks can affect them too.
+
+
+* One of the easiest ways to solve for a centered column is to use
+  margins. The keyword, as its name suggests, instructs the
+  browser to calculate the margin for you. 
+
+  * My first centered columns would use the shorthand, 
+  often on the <body> element
+
+*/
+
+
+/* applying center on stack */
+/* stack code from previous lesson */
+* {
+  max-inline-size: 40ch;
+}
+
+.stack {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack>* {
+  margin-block: 0;
+}
+
+.stack>*+* {
+  margin-block-start: var(--space, 1.5rem);
+}
+
+.stack:only-child {
+  block-size: 100%;
+}
+
+.stack> :nth-child(2) {
+  margin-block-end: auto;
+}
+
+/* stack code end */
+
+/* center  */
+
+
+/* For example, I might want center custom element
+   to place my custom within a STACK context. 
+   Stack sets margin-top on its children, and
+  <center> with margin:0 auto;  would undo that.
+ */
+.center {
+  max-width: 60ch;
+  /* this will not work ⬇️ */
+  margin: 0 auto;
+}
+
+.center {
+  max-width: 60ch;
+  /* this will work because we use explicit
+        margin left and right 
+        Then, any vertical margins 
+        contextually applied  would be preserved
+        and the <center> component would be primed  
+        for composition/nesting among other 
+        layout components.
+
+        its even better to use logical properties
+        like given below
+      */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.center {
+  /* equals to max width but 
+        for both landscape and potrait */
+  max-inline-size: 60ch;
+  /* 
+          insead of using 
+          * margin-left: auto;
+          * margin-right: auto;
+
+        */
+  margin-inline: auto;
+}
+
+/* use minimum margin as 
+        content can be flushed using 'ch' units,rather
+        letting it happen you should ensure minimum space
+        on either side.
+
+
+        I I need to go about this in such a way that 
+        preserves centering, and the maximum width. 
+        Since we can't enter auto into a calculation
+        [like calc(auto + 1rem) ], we should probably
+         defer to padding by overriding 
+         "content-box:border-box "
+         to
+         "content-box:content -box "
+        like given below 👇
+       */
+.center {
+  box-sizing: content-box;
+  max-inline-size: 60ch;
+  margin-inline: auto;
+  padding-inline-start: var(--s1);
+  padding-inline-end: var(--s1);
+}
+
+
+
+/* intrinsic centering given below
+on style1.css and is best approach*/
+

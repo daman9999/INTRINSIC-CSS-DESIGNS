@@ -1,0 +1,84 @@
+/*  aligning svg 
+
+        * by default the svg 
+        are vertical-align:middle;
+        we can make in one line like this
+
+        _❎_Close___
+
+        👆 where x is icon  and close is text 
+            using vertical-align baseline;
+*/
+
+
+/*
+* always use 'em' unit in svg to provide inline 
+          styling and matching the height of the text.
+        * use '1cap' instead but support is minimal so we are 
+          using the 'em' by experiment .75em is closest to the 
+          icon so we use instead use 'cap' unit 
+*/
+
+/*👉 matching hieght with big icon*/
+.icon {
+    height: 0.75em;
+    /* cap is used to match height with 
+    Capital letter 
+     i.e 'C' in Close
+    */
+    height: 1cap;  /* or .75em*/
+    width: 0.75em;
+    width: 1cap;/*or.75em*/
+    }
+
+    /* Where cap unit is not supported */
+@supports not(height: 1cap){
+    .icon{
+        height: .75em;
+        width: .75em;
+    }
+}
+
+/* match height with smaller letter in close
+    i.e 'c' in close
+*/
+
+
+/*👉  with small icon matching height of icon*/
+.icon1 {
+    width: 1ex;
+    height: 1ex;
+    }
+    /* Assume this is the parent or ancestor element for the icon */
+    .with-icon {
+    text-transform: lowercase;
+    }
+
+
+
+/*👉 spacing in btn */
+
+button.bigText{
+    direction: ltr;
+}
+.bigText > .text-with-icon{
+    display: inline-flex;
+    align-items: baseline;
+}
+
+/* if add additional margin */
+.text-with-icon .icon{
+    --space:.5rem;
+    margin-inline-end: var(--space,.5rem);
+}
+
+/* for small btn */
+button.smallText{
+    direction: rtl;
+}
+.with-icon{
+    display: inline-flex;
+    align-items: baseline;
+}
+
+

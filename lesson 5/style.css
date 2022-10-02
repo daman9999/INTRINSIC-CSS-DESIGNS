@@ -1,0 +1,66 @@
+/* threshold
+
+Certain inevitably accept measure-related props,
+and some set default values for those props using .
+The has a prop that defines the container width
+at which the layout switches between a horizontal a
+nd vertical
+configuration:
+
+
+*/
+
+/* recursive */
+/* .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .stack * {
+    margin-block: 0;
+  } 
+  
+  .stack * + * {
+    margin-block-start: var(--space, 1.5rem);
+  }
+  
+  .stack:only-child {
+    block-size: 100%;
+  }
+  
+  .stack > :nth-child(3) {
+    margin-block-end: auto;
+  } */
+    
+
+/* normal */
+
+*{
+    max-inline-size: 40ch;
+}
+.stack {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .stack > * {
+    margin-block: 0;
+  } 
+  
+  .stack > * + * {
+    margin-block-start: var(--space, 1.5rem);
+  }
+  
+  .stack:only-child {
+    block-size: 100%;
+  }
+  
+  .stack > :nth-child(2) {
+    margin-block-end: auto;
+  }
+    
+
+

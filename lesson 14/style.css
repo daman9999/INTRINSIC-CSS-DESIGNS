@@ -1,0 +1,66 @@
+/* 
+The is mostly useful for cropping media 
+(videos and images)
+to a desired aspect ratio. Once you start
+ controlling the aspect ratio,
+you can of course tailor it to the current
+ circumstances. For
+example, you might want to give images 
+a different aspect ratio
+depending on the viewport orientation 
+*/
+
+
+.frame {
+    --n: 16; /* numerator */
+    --d: 9;  /* denominator */
+    aspect-ratio: var(--n) /var(--d);
+    /* 👉 * use object-position if image focal point is
+        at the sides
+    */
+
+
+    /* 
+    * pervent the content 
+      to escape the frame in height 👇
+    */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.frame>img,
+.frame>video {
+    /* inline-size: 100%; */
+    /* block-size: 100%; */
+    
+    /* if image is bid than frame 
+    this property makes it fit in image 👇 */
+    object-fit: cover;
+    
+}
+
+
+
+
+/* 
+==================================================
+        🗒️ NOTE
+===================================================
+
+
+Another way to crop an image to 
+cover its parent’s shape is to
+supply it as a background image, and use 
+
+background-size: cover;
+
+
+if the image is for decorative purposes use background-size: cover;
+because when you print your website the background-size: cover; is ignored by printer
+so when the image is important like avatar's use the 
+object fit property for the avatars or another important things.
+
+*/

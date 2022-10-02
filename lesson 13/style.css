@@ -1,0 +1,30 @@
+/* 
+VERY GOOD For PRODUcTS LIST AS ON FLIPKART
+*/
+
+.grid{
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid  > div{
+    height: 200px;
+    width: 200px;
+    background-color:aliceblue;
+}
+
+@supports (width: min(250px, 100%)) {
+    .grid {
+        /* 
+            *   way works is it calculates the 
+                from a set of
+                comma-separated values.
+                min(250px, 100%) return 100% where
+                250px evaluates as higher than evaluated 100%
+                this is useful little algorithm decides for us to where
+                the width must be locked at 100%
+        */
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    }
+    }
+    
